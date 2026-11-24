@@ -27,6 +27,7 @@
     <Compile Remove="Fixtures\RazorFixture\**" />
     <Compile Remove="Fixtures\PropsFixture\**" />
     <Compile Remove="Fixtures\MultiInstanceSolution\**" />
+    <Compile Remove="Fixtures\ForwardedTypesSolution\**" />
     <None Include="Fixtures\TestSolution\**" CopyToOutputDirectory="Never" />
     <None Include="Fixtures\TestSolutionAlt\**" CopyToOutputDirectory="Never" />
     <None Include="Fixtures\LegacySolution\**" CopyToOutputDirectory="Never" />
