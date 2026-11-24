@@ -127,4 +127,15 @@ public class MultiInstanceSymbolTests
         Assert.Equal(AppProjects, results.Select(r => r.Project).Order(StringComparer.Ordinal), StringComparer.Ordinal);
         Assert.All(results, r => Assert.EndsWith("Usages", r.TargetName, StringComparison.Ordinal));
     }
+
+    [Fact]
+    public void FindNamedTypes_FullNameDeclaredInTwoProjects_ReturnsBothTypes()
+    {
+        var types = _resolver.FindNamedTypes("Duplicate.Helper");
+
+        Assert.Equal(
+            ["RunNet10", "RunNet9"],
+            types.SelectMany(t => t.GetMembers()).Where(m => m.Name.StartsWith("Run", StringComparison.Ordinal))
+                .Select(m => m.Name).Order(StringComparer.Ordinal));
+    }
 }
